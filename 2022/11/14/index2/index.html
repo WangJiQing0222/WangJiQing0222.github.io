@@ -5,17 +5,17 @@
   
 
   
-  <title>index2 | Hexo</title>
+  <title>MySQL锁 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world嗷嗷嗷">
+  <meta name="description" content="hello world嗷嗷嗷– 全局锁flush tables with read lock;UNLOCK TABLES; – 表级锁– 表锁 READ都可以读，但不可以写；WRITE都不能读写LOCK TABLES tb_user READ;LOCK TABLES tb_user WRITE;UNLOCK TABLES; – 元数据锁 自动加MDL锁  在表上有活动事务进行（增删改查）时，不可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="index2">
+<meta property="og:title" content="MySQL锁">
 <meta property="og:url" content="http://example.com/2022/11/14/index2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="hello world嗷嗷嗷">
+<meta property="og:description" content="hello world嗷嗷嗷– 全局锁flush tables with read lock;UNLOCK TABLES; – 表级锁– 表锁 READ都可以读，但不可以写；WRITE都不能读写LOCK TABLES tb_user READ;LOCK TABLES tb_user WRITE;UNLOCK TABLES; – 元数据锁 自动加MDL锁  在表上有活动事务进行（增删改查）时，不可以">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-14T14:11:29.000Z">
-<meta property="article:modified_time" content="2022-11-14T14:12:50.973Z">
+<meta property="article:modified_time" content="2022-11-15T04:21:29.985Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -80,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      index2
+      MySQL锁
     </h1>
   
 
@@ -88,7 +88,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="hello-world嗷嗷嗷"><a href="#hello-world嗷嗷嗷" class="headerlink" title="hello world嗷嗷嗷"></a>hello world嗷嗷嗷</h1>
+        <h1 id="hello-world嗷嗷嗷"><a href="#hello-world嗷嗷嗷" class="headerlink" title="hello world嗷嗷嗷"></a>hello world嗷嗷嗷</h1><p>– 全局锁<br>flush tables with read lock;<br>UNLOCK TABLES;</p>
+<p>– 表级锁<br>– 表锁 READ都可以读，但不可以写；WRITE都不能读写<br>LOCK TABLES tb_user READ;<br>LOCK TABLES tb_user WRITE;<br>UNLOCK TABLES;</p>
+<p>– 元数据锁 自动加MDL锁  在表上有活动事务进行（增删改查）时，不可以对表(元数据)结构进行写入操作<br>– MDL分为MDL共享锁（增删改查）、MDL排它锁（改变表结构）<br>– MDL共享锁之间兼容，MDL排它锁与MDL共享锁、排它锁互斥<br>– 查看元数据锁<br>SELECT object_type, object_schema, object_name, lock_type, lock_duration<br>from <code>performance_schema</code>.metadata_locks;</p>
+<p>– 查看意向锁      意向锁减少表锁的检查     使得表锁不用每行检查是否加了行锁<br>SELECT object_schema, object_name, index_name, lock_type, lock_mode, lock_data<br>from <code>performance_schema</code>.data_locks;</p>
+<p><a target="_blank" rel="noopener" href="https://softxm.lanzouw.com/b01pvd55g">https://softxm.lanzouw.com/b01pvd55g</a></p>
+
       
     </div>
     <footer class="article-footer">
@@ -100,6 +105,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2022/11/15/hi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hi
+        
+      </div>
+    </a>
   
   
     <a href="/2022/11/14/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -141,7 +155,19 @@
       <ul>
         
           <li>
-            <a href="/2022/11/14/index2/">index2</a>
+            <a href="/2022/11/15/article-title/">article title</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/15/wc/">wc</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/15/hi/">hi</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/14/index2/">MySQL锁</a>
           </li>
         
           <li>

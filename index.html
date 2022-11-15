@@ -64,6 +64,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-article-title" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/15/article-title/" class="article-date">
+  <time datetime="2022-11-15T04:26:54.000Z" itemprop="datePublished">2022-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/15/article-title/">article title</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/15/article-title/" data-id="clahpqqjh000094ur4sgw86d6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/15/wc/" class="article-date">
+  <time datetime="2022-11-15T04:09:47.000Z" itemprop="datePublished">2022-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/15/wc/">wc</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/15/wc/" data-id="clahp4n6b00004surbanxfty3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/15/hi/" class="article-date">
+  <time datetime="2022-11-15T04:05:04.000Z" itemprop="datePublished">2022-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/15/hi/">hi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="z"><a href="#z" class="headerlink" title="z"></a>z</h1><p>这是在hi中的内容</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/15/hi/" data-id="clahp0apf00008our5iv9adhi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-index2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/11/14/index2/" class="article-date">
@@ -78,7 +187,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/14/index2/">index2</a>
+      <a class="article-title" href="/2022/11/14/index2/">MySQL锁</a>
     </h1>
   
 
@@ -86,7 +195,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="hello-world嗷嗷嗷"><a href="#hello-world嗷嗷嗷" class="headerlink" title="hello world嗷嗷嗷"></a>hello world嗷嗷嗷</h1>
+        <h1 id="hello-world嗷嗷嗷"><a href="#hello-world嗷嗷嗷" class="headerlink" title="hello world嗷嗷嗷"></a>hello world嗷嗷嗷</h1><p>– 全局锁<br>flush tables with read lock;<br>UNLOCK TABLES;</p>
+<p>– 表级锁<br>– 表锁 READ都可以读，但不可以写；WRITE都不能读写<br>LOCK TABLES tb_user READ;<br>LOCK TABLES tb_user WRITE;<br>UNLOCK TABLES;</p>
+<p>– 元数据锁 自动加MDL锁  在表上有活动事务进行（增删改查）时，不可以对表(元数据)结构进行写入操作<br>– MDL分为MDL共享锁（增删改查）、MDL排它锁（改变表结构）<br>– MDL共享锁之间兼容，MDL排它锁与MDL共享锁、排它锁互斥<br>– 查看元数据锁<br>SELECT object_type, object_schema, object_name, lock_type, lock_duration<br>from <code>performance_schema</code>.metadata_locks;</p>
+<p>– 查看意向锁      意向锁减少表锁的检查     使得表锁不用每行检查是否加了行锁<br>SELECT object_schema, object_name, index_name, lock_type, lock_mode, lock_data<br>from <code>performance_schema</code>.data_locks;</p>
+<p><a target="_blank" rel="noopener" href="https://softxm.lanzouw.com/b01pvd55g">https://softxm.lanzouw.com/b01pvd55g</a></p>
+
       
     </div>
     <footer class="article-footer">
@@ -180,7 +294,19 @@
       <ul>
         
           <li>
-            <a href="/2022/11/14/index2/">index2</a>
+            <a href="/2022/11/15/article-title/">article title</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/15/wc/">wc</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/15/hi/">hi</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/14/index2/">MySQL锁</a>
           </li>
         
           <li>
